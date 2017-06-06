@@ -1,7 +1,7 @@
-import sys
-import socket
 import select
 import signal
+import socket
+import sys
 
 Socket_list = []
 Recv_buffer = 350

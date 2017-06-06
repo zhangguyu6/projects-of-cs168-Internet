@@ -6,6 +6,8 @@ __pycache__/
 *.db
 *.swp
 *.un~
+*.doc
+*.tar.gz
 .vscode
 indexdir/
 versions

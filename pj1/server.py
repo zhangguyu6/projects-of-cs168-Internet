@@ -176,7 +176,7 @@ class Server:
                     name = name if name else '匿名用户'
                     news = "[系统信息] {}已登出".format(name)
                     for person in self.Channels[channel]:
-                        print(person,conn)
+                        print(person, conn)
                         if person == conn:
                             self.write_and_exit(person, news)
                         else:
@@ -241,23 +241,22 @@ class Server:
         self.remove_handler(conn.fileno())
         msg = msg.encode()
         print(len(msg))
-        if len(msg)<Recv_buffer:
-            msg=msg+b' '*(Recv_buffer-len(msg))
+        if len(msg) < Recv_buffer:
+            msg = msg + b' ' * (Recv_buffer - len(msg))
         conn.send(msg)
 
     def write_and_exit(self, conn, msg):
         self.remove_handler(conn.fileno())
         msg = msg.encode()
-        if len(msg)<Recv_buffer:
-            msg=msg+b' '*(Recv_buffer-len(msg))
+        if len(msg) < Recv_buffer:
+            msg = msg + b' ' * (Recv_buffer - len(msg))
         try:
             conn.send(msg)
         finally:
             self.select.unregister(conn.fileno())
             self.Channels[self.connections[conn.fileno()][0]].remove(conn)
-            self.connections.pop(conn.fileno(),None)
+            self.connections.pop(conn.fileno(), None)
             conn.close()
-            
 
     def run(self):
         print("servver start listen on {}:{}".format(self.host, self.port))
@@ -268,7 +267,6 @@ class Server:
                          readhander=self.accept)
         try:
             while True:
-
                 events = self.select.poll(2)
                 for fileno, event in events:
                     if event & select.EPOLLIN:
