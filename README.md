@@ -11,8 +11,8 @@ cs168计算机网络的课后项目
 启动客户端二:`python3 client.py localhost 8989`  
 客户端命令:
 * /setname <name> 设置用户名 
-* /create <channel> 创建频道'
-* /join <channel> 加入频道'
+* /create <channel> 创建频道
+* /join <channel> 加入频道
 * /ls 列出所有频道
 * /exit 退出
 * /help 帮助信息
